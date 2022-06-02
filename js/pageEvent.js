@@ -4,11 +4,8 @@
 
     const handleGage = () => {
         const scrlTop = window.pageYOffset;
-        const scrlGage = gageEl.getBoundingClientRect().width;
+        gageEl.style.width = scrlTop + "px"
 
-        for(let i = 0; i >= scrlTop; i++;){
-
-        }
     }
 
     window.addEventListener('scroll', handleGage);
