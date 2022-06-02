@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+
+    <style>
+
+        *{margin: 0; padding: 0;}
+
+        .wrap{
+            height: 300vh;
+        }
+
+        header{
+            width: 100%;
+            height: 80px;
+            background-color: lightblue;
+            position: fixed;
+            top: 0; left: 0;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .gage_wrap{
+            width: 100%;
+            height: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .gage{
+            width: 0%;
+            height: 100%;
+            background-color: blue;
+        }
+
+        .container{
+            width: 1000px;
+            height: 500px;
+            background-color: salmon;
+            margin: 200px auto;
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin: 0 auto;
+            transition: 0.5s;
+        }
+
+        .active{
+            background-color: cadetblue;
+            opacity: 1;
+        }
+
+        .round{
+            transform: scale(2);
+            border-radius: 50%;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrap">
+
+        <header>
+            <div class="gage_wrap">
+                <div class="gage"></div>
+            </div>
+        </header>
+        
+        <div class="container"></div>
+
+        <div class="box"></div>
+
+    </div>
+
+    <script src="js/pageEvent.js"></script>
+    <script src="js/style.js"></script>
+
+</body>
+</html>
