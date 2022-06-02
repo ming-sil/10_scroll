@@ -32,9 +32,22 @@
             margin: 200px auto;
         }
 
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin: 0 auto;
+            transition: 0.5s;
+        }
+
         .active{
             background-color: cadetblue;
             opacity: 1;
+        }
+
+        .round{
+            transform: scale(2);
+            border-radius: 50%;
         }
 
     </style>
@@ -48,6 +61,8 @@
         
         <div class="container"></div>
 
+        <div class="box"></div>
+
     </div>
 
     <script>
@@ -60,8 +75,10 @@
             // 4. 이벤트 적용
 
             const header = document.querySelector('header');
+            const conEl = document.querySelector('.container');
+            const boxEl = document.querySelector('.box');
 
-            const handleScroll = () => {
+            const handleScrollHeader = () => {
                 const sct = window.pageYOffset;
 
                 header.innerHTML = sct;
@@ -73,7 +90,24 @@
                 }
             }
 
-            window.addEventListener('scroll', handleScroll);
+            const handleScrollBox = () => {
+             
+                // *컨테이너가 top에 도달했을 때 box가 둥글게 변경
+                // console.log(
+                //     conEl.getBoundingClientRect().top
+                // )
+
+                const conTop = conEl.getBoundingClientRect().top;
+                if(conTop <= 0){
+                    boxEl.classList.add('round');
+                }else{
+                    boxEl.classList.remove('round');
+                }
+            }
+
+
+            window.addEventListener('scroll', handleScrollHeader);
+            window.addEventListener('scroll', handleScrollBox);
 
         })();//end
     </script>
