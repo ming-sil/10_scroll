@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll</title>
+
+    <style>
+
+        *{margin: 0; padding: 0;}
+
+        .wrap{
+            height: 300vh;
+        }
+
+        header{
+            width: 100%;
+            height: 80px;
+            background-color: lightblue;
+            position: fixed;
+            top: 0; left: 0;
+        }
+
+        .container{
+            width: 1000px;
+            height: 500px;
+            background-color: salmon;
+            margin: 200px auto;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrap">
+
+        <header></header>
+        
+        <div class="container"></div>
+
+    </div>
+
+    <script>
+        (function(){
+
+            const conEl = document.querySelector('.container');
+
+            const handleScroll = () => {
+                // console.log('scroll event');
+                
+                // console.log(window.pageYOffset);
+                // // =>윈도우 전역객체가 가지고 있는 스크롤값 (px단위로 가져올 수 있음)
+                // // =>pageYoffset으로 window 생략가능
+
+                const scrlTop = window.pageYOffset;
+
+                // console.log(conEl.offsetTop);
+                // // *선택자.offsetTop
+                // // =>엘리먼트의 처음 top위치를 가져옴
+                // // =>첫 top위치만 가져오기 때문에 스크롤이 변경되어도 값이 고정되어있음
+                // // =>offsetLeft는 엘리먼트의 왼쪽 위치값을 가져옴
+                // // =>right, bottom은 존재하지 않음
+
+                // console.log(conEl.offsetHeight);
+                // // *선택자.offsetHeight / 선택자.offsetWidth
+                // // =>엘리먼트의 높이값, 가로값을 px단위로 가져옴
+
+                // console.log(conEl.getBoundingClientRect().top);
+                // // *선택자.getBoundingClientRect();
+                // // =>엘리먼트의 속성(크기, 위치)을 가져올 수 있음
+                // // =>만약 top값을 가져오고 싶을땐 선택자.getBoundingClientRect()top; 으로 사용
+
+                // console.log(window.innerHeight);
+                // // *window.innerHeight / window.innerWidth
+                // // =>브라우저의 높이값, 가로값을 px단위로 가져옴
+
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            // =>스크롤을 했을 때 이벤트 발생
+
+        })();//end
+    </script>
+
+</body>
+</html>
